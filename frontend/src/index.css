@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,400&display=swap');
+@import 'tailwindcss';
+
+:root {
+  /* Surface scale — dark charcoal, not pure black */
+  --bg:   #0f1114;
+  --p1:   #171a1f;
+  --p2:   #1d2128;
+  --p3:   #252b34;
+
+  /* Borders */
+  --bd:   #262d38;
+  --bd2:  #323b47;
+
+  /* Text */
+  --t0:   #dde7f2;
+  --t1:   #a8b8ca;
+  --t2:   #6a7f96;
+  --t3:   #3f5162;
+
+  /* Risk accent — one hue family, four steps */
+  --rc:   #c9512a;   /* CRITICAL — muted burnt orange  */
+  --rh:   #b87c22;   /* HIGH    — dark amber           */
+  --rm:   #6e8faa;   /* MEDIUM  — steel blue           */
+  --rl:   #3e7a60;   /* LOW     — muted teal           */
+
+  --rc-bg: rgba(201,81,42,0.10);
+  --rh-bg: rgba(184,124,34,0.10);
+  --rm-bg: rgba(110,143,170,0.10);
+  --rl-bg: rgba(62,122,96,0.10);
+
+  --sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --mono: 'DM Mono', 'Menlo', monospace;
+}
+
+html, body, #root { height: 100%; overflow: hidden; }
+* { box-sizing: border-box; }
+
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--bd2); border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: var(--t2); }
+
+::selection { background: rgba(201,81,42,0.22); color: var(--t0); }
+button { font-family: var(--sans); cursor: pointer; }
+a     { color: inherit; }
+
+/* Trail hop animation */
+@keyframes hop-in {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.hop-in  { animation: hop-in 0.34s cubic-bezier(0.22,1,0.36,1) both; }
+
+@keyframes line-grow {
+  from { transform: scaleY(0); transform-origin: top; }
+  to   { transform: scaleY(1); transform-origin: top; }
+}
+.line-grow { animation: line-grow 0.38s cubic-bezier(0.22,1,0.36,1) both; }
+
+/* Panel slide-in */
+@keyframes slide-in-right {
+  from { transform: translateX(100%); opacity: 0; }
+  to   { transform: translateX(0);    opacity: 1; }
+}
+.slide-right { animation: slide-in-right 0.28s cubic-bezier(0.22,1,0.36,1) both; }
+
+/* Overlay fade */
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+.fade-in { animation: fade-in 0.18s ease both; }
